@@ -2,6 +2,7 @@
   "name": "open-html",
   "version": "1.0.0",
   "author": "katashin",
+  "repository": "https://github.com/ktsn/open-html",
   "bin": {
     "openhtml": "open-html.js"
   },
