@@ -1,0 +1,11 @@
+{
+  "name": "open-html",
+  "version": "1.0.0",
+  "author": "katashin",
+  "bin": {
+    "openhtml": "open-html.js"
+  },
+  "dependencies": {
+    "opener": "^1.4.1"
+  }
+}
