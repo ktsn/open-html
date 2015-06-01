@@ -20,6 +20,10 @@ npm install -g
 
 # 使い方 - Usage
 
+第2引数に対象とするフォルダーを指定し、第3引数にベースの URL を入力します。
+Input the target folder on 2nd argument, base URL on 3rd argument.
+
 ```bash
-openhtml ./path/to/html/
+openhtml ./path/to/html/ # 第2引数のみの時は file:/// で開く
+openhtml ./path/to/html/ http://localhost/ # http://localhost 以下の html ファイルをすべて開く
 ```
