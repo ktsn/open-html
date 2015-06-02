@@ -3,7 +3,7 @@
 指定したディレクトリ以下の HTML ファイルをすべて開くスクリプト。
 open-html is the script that opens all HTML files in the given directory.
 
-# インストール – Installation
+## インストール – Installation
 
 Node.js が必要なので、まずは Node.js をインストールしてください。
 First of all, install Node.js because open-html requires Node.js.
@@ -18,7 +18,7 @@ npm install
 npm install -g
 ```
 
-# 使い方 - Usage
+## 使い方 - Usage
 
 第2引数に対象とするフォルダーを指定し、第3引数にベースの URL を入力します。
 Input the target folder on 2nd argument, base URL on 3rd argument.

@@ -12,6 +12,8 @@ if (!dir) {
 }
 
 function openHtml(pathList, options, done) {
+  if (pathList.length === 0) return done(null);
+
   var localBase = options.localBase;
   var urlBase = options.urlBase || localBase;
 
@@ -19,28 +21,23 @@ function openHtml(pathList, options, done) {
   var stat = fs.statSync(target);
 
   if (stat.isDirectory()) {
-    return fs.readdir(target, function(err, fileList) {
+    fs.readdir(target, function(err, fileList) {
       if (err) return done(err);
       fileList = fileList.map(function(file) {
         return path.join(target, file);
       });
       openHtml(pathList.concat(fileList), options, done);
     });
+    return;
   }
 
-  if (stat.isFile()) {
-    if (path.extname(target) === '.html') {
-      var url = path.join(urlBase, path.relative(localBase, target));
-      console.log('open: ' + url);
-      opener(url);
-    }
-
-    if (pathList.length > 0) {
-      openHtml(pathList, options, done);
-    } else {
-      done(null);
-    }
+  if (stat.isFile() && path.extname(target) === '.html') {
+    var url = path.join(urlBase, path.relative(localBase, target));
+    console.log('open: ' + url);
+    opener(url);
   }
+
+  openHtml(pathList, options, done);
 }
 
 openHtml([dir], {
